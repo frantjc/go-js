@@ -1,7 +1,18 @@
 package js
 
+// NewArray creates a new Array from the input array.
+func NewArray[T1 any](in []T1) Array {
+	out := make(Array, len(in))
+	for i, a := range in {
+		out[i] = a
+	}
+	return out
+}
+
 // Array is an array of any and has methods that
-// mimic a subset of the JavaScript array functions
+// mimic a subset of the JavaScript array functions.
+//
+// Array is NOT USABLE
 type Array []any
 
 // Every tests whether all elements in the array pass the
