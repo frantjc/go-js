@@ -198,3 +198,25 @@ func TestUnique(t *testing.T) {
 	)
 	assert.Equal(t, expected, actual)
 }
+
+func TestSortWorst(t *testing.T) {
+	var (
+		a        = []int{4, 3, 2, 1}
+		expected = []int{1, 2, 3, 4}
+		actual   = js.Sort(a, func(a, b int) int {
+			return a - b
+		})
+	)
+	assert.Equal(t, expected, actual)
+}
+
+func TestSortBest(t *testing.T) {
+	var (
+		a        = []int{1, 2, 3, 4}
+		expected = []int{1, 2, 3, 4}
+		actual   = js.Sort(a, func(a, b int) int {
+			return a - b
+		})
+	)
+	assert.Equal(t, expected, actual)
+}
