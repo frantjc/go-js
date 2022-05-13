@@ -160,8 +160,8 @@ func TestSliceFromStart(t *testing.T) {
 func TestSliceFromEnd(t *testing.T) {
 	var (
 		a        = []int{0, 1, 2, 3}
-		expected = []int{0, 1, 2}
-		actual   = js.Slice(a, 0, -1)
+		expected = []int{2}
+		actual   = js.Slice(a, -2, -1)
 	)
 	assert.Equal(t, expected, actual)
 }
