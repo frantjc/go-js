@@ -189,3 +189,12 @@ func TestSomeFalse(t *testing.T) {
 	)
 	assert.Equal(t, expected, actual)
 }
+
+func TestUnique(t *testing.T) {
+	var (
+		a        = []int{1, 2, 3, 4, 3, 2, 1}
+		expected = []int{1, 2, 3, 4}
+		actual   = js.Unique(a)
+	)
+	assert.Equal(t, expected, actual)
+}
