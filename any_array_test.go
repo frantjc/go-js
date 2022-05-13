@@ -67,18 +67,6 @@ func TestAnyFind(t *testing.T) {
 	assert.Equal(t, expected, actual)
 }
 
-func TestAnyMap(t *testing.T) {
-	var (
-		a = js.AnyArray[int]([]int{1, 2, 3, 4, 3, 2})
-		f = func(a, _ int, _ []int) any {
-			return a + 1
-		}
-		expected = js.AnyArray[interface{}]([]interface{}{2, 3, 4, 5, 4, 3})
-		actual   = a.Map(f)
-	)
-	assert.Equal(t, expected, actual)
-}
-
 func TestAnyReverse(t *testing.T) {
 	var (
 		a        = js.AnyArray[int]([]int{1, 2, 3, 4, 3, 2})

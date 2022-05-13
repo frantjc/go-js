@@ -36,12 +36,6 @@ func (a AnyArray[T]) ForEach(f func(T, int, []T)) {
 	ForEach(a, f)
 }
 
-// Map creates a new array populated with the results of
-// calling a provided function on every element in the calling array.
-func (a AnyArray[T]) Map(f func(T, int, []T) any) AnyArray[any] {
-	return Map(a, f)
-}
-
 // Reverse creates a new array by reversing the given array.
 // The first array element becomes the last, and the last array element becomes the first.
 func (a AnyArray[T]) Reverse() AnyArray[T] {
