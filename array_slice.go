@@ -19,8 +19,6 @@ func Slice[T any](in []T, start, end int) []T {
 		end = len(in) + end
 	}
 	out := make([]T, end-start)
-	for k, a := range in[start:end] {
-		out[k] = a
-	}
+	copy(out, in[start:end])
 	return out
 }

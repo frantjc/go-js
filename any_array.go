@@ -1,14 +1,5 @@
 package js
 
-// NewAnyArray creates a new AnyArray from the input array.
-func NewAnyArray[T any](in []T) AnyArray[T] {
-	out := make(AnyArray[T], len(in))
-	for i, a := range in {
-		out[i] = a
-	}
-	return out
-}
-
 // AnyArray is an array of any and has methods that
 // mimic a subset of the JavaScript array functions.
 type AnyArray[T any] []T
@@ -50,30 +41,6 @@ func (a AnyArray[T]) ForEach(f func(T, int, []T)) {
 func (a AnyArray[T]) Map(f func(T, int, []T) any) AnyArray[any] {
 	return Map(a, f)
 }
-
-// TODO solve any typing problem
-// ReduceRight applies a function against an accumulator and each value of the array
-// (from right-to-left) to reduce it to a single value.
-// func (a AnyArray[T]) ReduceRight(f func(any, T, int, []T) any, initial any) any {
-// 	return ReduceRight(a, f, initial)
-// }
-
-// TODO solve any typing problem
-// Reduce executes a user-supplied "reducer" callback function
-// on each element of the array, in order, passing in the return
-// value from the calculation on the preceding element.
-// The final result of running the reducer across all
-// elements of the array is a single value.
-//
-// The first time that the callback is run there is no
-// "return value of the previous calculation". If supplied,
-// an initial value may be used in its place.
-// Otherwise the array element at index 0 is used
-// as the initial value and iteration starts from
-// the next element (index 1 instead of index 0).
-// func (a AnyArray[T]) Reduce(f func(any, T, int, []T) any, initial any) any {
-// 	return Reduce(a, f, initial)
-// }
 
 // Reverse creates a new array by reversing the given array.
 // The first array element becomes the last, and the last array element becomes the first.

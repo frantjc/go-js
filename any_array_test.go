@@ -9,7 +9,7 @@ import (
 
 func TestAnyEveryTrue(t *testing.T) {
 	var (
-		a = js.NewAnyArray([]int{1, 2, 3, 4})
+		a = js.AnyArray[int]([]int{1, 2, 3, 4})
 		f = func(a, _ int, _ []int) bool {
 			return a > 0
 		}
@@ -21,7 +21,7 @@ func TestAnyEveryTrue(t *testing.T) {
 
 func TestAnyEveryFalse(t *testing.T) {
 	var (
-		a = js.NewAnyArray([]int{0, 1, 2, 3})
+		a = js.AnyArray[int]([]int{0, 1, 2, 3})
 		f = func(a, _ int, _ []int) bool {
 			return a > 0
 		}
@@ -33,11 +33,11 @@ func TestAnyEveryFalse(t *testing.T) {
 
 func TestAnyFilter(t *testing.T) {
 	var (
-		a = js.NewAnyArray([]int{0, 1, 2, 3})
+		a = js.AnyArray[int]([]int{0, 1, 2, 3})
 		f = func(a, _ int, _ []int) bool {
 			return a > 0
 		}
-		expected = js.NewAnyArray([]int{1, 2, 3})
+		expected = js.AnyArray[int]([]int{1, 2, 3})
 		actual   = a.Filter(f)
 	)
 	assert.Equal(t, expected, actual)
@@ -45,7 +45,7 @@ func TestAnyFilter(t *testing.T) {
 
 func TestAnyFindIndex(t *testing.T) {
 	var (
-		a = js.NewAnyArray([]int{1, 2, 3, 4})
+		a = js.AnyArray[int]([]int{1, 2, 3, 4})
 		f = func(a, _ int, _ []int) bool {
 			return a == 2
 		}
@@ -57,7 +57,7 @@ func TestAnyFindIndex(t *testing.T) {
 
 func TestAnyFind(t *testing.T) {
 	var (
-		a = js.NewAnyArray([]int{1, 2, 3, 4})
+		a = js.AnyArray[int]([]int{1, 2, 3, 4})
 		f = func(a, _ int, _ []int) bool {
 			return a > 0
 		}
@@ -69,44 +69,20 @@ func TestAnyFind(t *testing.T) {
 
 func TestAnyMap(t *testing.T) {
 	var (
-		a = js.NewAnyArray([]int{1, 2, 3, 4, 3, 2})
+		a = js.AnyArray[int]([]int{1, 2, 3, 4, 3, 2})
 		f = func(a, _ int, _ []int) any {
 			return a + 1
 		}
-		expected = js.NewAnyArray([]interface{}{2, 3, 4, 5, 4, 3})
+		expected = js.AnyArray[interface{}]([]interface{}{2, 3, 4, 5, 4, 3})
 		actual   = a.Map(f)
 	)
 	assert.Equal(t, expected, actual)
 }
 
-// func TestAnyReduceRight(t *testing.T) {
-// 	var (
-// 		a = js.NewAnyArray([]int{1, 2, 3, 4, 3, 2})
-// 		f = func(acc, a, _ int, _ []int) int {
-// 			return acc + a
-// 		}
-// 		expected = 15
-// 		actual   = a.ReduceRight(f, 0)
-// 	)
-// 	assert.Equal(t, expected, actual)
-// }
-
-// func TestAnyReduce(t *testing.T) {
-// 	var (
-// 		a = js.NewAnyArray([]int{1, 2, 3, 4, 3, 2})
-// 		f = func(acc, a, _ int, _ []int) int {
-// 			return acc + a
-// 		}
-// 		expected = 15
-// 		actual   = a.Reduce(f, 0)
-// 	)
-// 	assert.Equal(t, expected, actual)
-// }
-
 func TestAnyReverse(t *testing.T) {
 	var (
-		a        = js.NewAnyArray([]int{1, 2, 3, 4, 3, 2})
-		expected = js.NewAnyArray([]int{2, 3, 4, 3, 2, 1})
+		a        = js.AnyArray[int]([]int{1, 2, 3, 4, 3, 2})
+		expected = js.AnyArray[int]([]int{2, 3, 4, 3, 2, 1})
 		actual   = a.Reverse()
 	)
 	assert.Equal(t, expected, actual)
@@ -114,8 +90,8 @@ func TestAnyReverse(t *testing.T) {
 
 func TestAnySliceFromStart(t *testing.T) {
 	var (
-		a        = js.NewAnyArray([]int{0, 1, 2, 3})
-		expected = js.NewAnyArray([]int{0, 1})
+		a        = js.AnyArray[int]([]int{0, 1, 2, 3})
+		expected = js.AnyArray[int]([]int{0, 1})
 		actual   = a.Slice(0, 2)
 	)
 	assert.Equal(t, expected, actual)
@@ -123,8 +99,8 @@ func TestAnySliceFromStart(t *testing.T) {
 
 func TestAnySliceFromEnd(t *testing.T) {
 	var (
-		a        = js.NewAnyArray([]int{0, 1, 2, 3})
-		expected = js.NewAnyArray([]int{2})
+		a        = js.AnyArray[int]([]int{0, 1, 2, 3})
+		expected = js.AnyArray[int]([]int{2})
 		actual   = a.Slice(-2, -1)
 	)
 	assert.Equal(t, expected, actual)
@@ -132,7 +108,7 @@ func TestAnySliceFromEnd(t *testing.T) {
 
 func TestAnySomeTrue(t *testing.T) {
 	var (
-		a = js.NewAnyArray([]int{1, 2, 3, 4})
+		a = js.AnyArray[int]([]int{1, 2, 3, 4})
 		f = func(a, _ int, _ []int) bool {
 			return a == 4
 		}
@@ -144,7 +120,7 @@ func TestAnySomeTrue(t *testing.T) {
 
 func TestAnySomeFalse(t *testing.T) {
 	var (
-		a = js.NewAnyArray([]int{1, 2, 3, 4})
+		a = js.AnyArray[int]([]int{1, 2, 3, 4})
 		f = func(a, _ int, _ []int) bool {
 			return a == 5
 		}
