@@ -98,7 +98,16 @@ func TestLastIndexOf(t *testing.T) {
 	var (
 		a        = []int{1, 2, 3, 4, 3, 2}
 		expected = 4
-		actual   = js.LastIndexOf(a, 3)
+		actual   = js.LastIndexOf(a, 3, 0)
+	)
+	assert.Equal(t, expected, actual)
+}
+
+func TestLastIndexOfFrom(t *testing.T) {
+	var (
+		a        = []int{1, 2, 3, 4, 3, 2}
+		expected = 2
+		actual   = js.LastIndexOf(a, 3, 3)
 	)
 	assert.Equal(t, expected, actual)
 }

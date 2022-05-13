@@ -1,8 +1,8 @@
 package js
 
 // Unique creates a new array with only unique elements.
-func Unique[T1 comparable](in []T1) []T1 {
-	return Filter(in, func(a T1, i int, self []T1) bool {
+func Unique[T comparable](in []T) []T {
+	return Filter(in, func(a T, i int, self []T) bool {
 		return i == IndexOf(self, a)
 	})
 }

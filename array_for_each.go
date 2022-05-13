@@ -2,7 +2,7 @@ package js
 
 // ForEach executes a provided function once
 // for each array element
-func ForEach[T1 any](in []T1, f func(T1, int, []T1)) {
+func ForEach[T any](in []T, f func(T, int, []T)) {
 	for i, a := range in {
 		f(a, i, in)
 	}

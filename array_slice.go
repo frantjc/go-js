@@ -6,11 +6,11 @@ package js
 // start and end represent the index of items in that array.
 // The original array will not be modified.
 //
-// If start<0, it is treated as distance from the end of the array
-// If end<=0, it is treated as distance from the end of the array
-func Slice[T1 any](in []T1, start, end int) []T1 {
+// If start<0, it is treated as distance from the end of the array.
+// If end<=0, it is treated as distance from the end of the array.
+func Slice[T any](in []T, start, end int) []T {
 	if start > end {
-		return make([]T1, 0)
+		return make([]T, 0)
 	}
 	if start < 0 {
 		start = len(in) + start
@@ -18,7 +18,7 @@ func Slice[T1 any](in []T1, start, end int) []T1 {
 	if end <= 0 {
 		end = len(in) + end
 	}
-	out := make([]T1, end-start)
+	out := make([]T, end-start)
 	for k, a := range in[start:end] {
 		out[k] = a
 	}

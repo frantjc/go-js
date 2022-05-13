@@ -3,7 +3,7 @@ package js
 // Sort creates a new array by sorting the elements of
 // the given array and returns the sorted array.
 // The sort order is ascending.
-func Sort[T1 comparable](in []T1, f func(a, b T1) int) []T1 {
+func Sort[T comparable](in []T, f func(a, b T) int) []T {
 	out := in
 	k := len(out)
 	for i := 0; i < k; i++ {
