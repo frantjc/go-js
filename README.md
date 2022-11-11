@@ -2,7 +2,9 @@
 
 [![push](https://github.com/frantjc/go-js/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/frantjc/go-js/actions)
 
-[Golang](https://go.dev) module for functions that mimic useful JavaScript functions using [Go 1.18's Generics](https://go.dev/blog/intro-generics)
+Deprecated in favor of [`go-fn`](https://github.com/frantjc/go-fn) which removes JavaScript specific stuff that doesn't work as nicely in Go without optional paramter handling.
+
+[Go](https://go.dev) module for functions that mimic useful JavaScript functions using [Go 1.18's Generics](https://go.dev/blog/intro-generics)
 
 ## Install
 
